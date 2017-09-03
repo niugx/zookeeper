@@ -3975,6 +3975,7 @@ int zoo_amulti(zhandle_t *zh, int count, const zoo_op_t *ops,
             }
 
             default:
+                close_buffer_oarchive(&oa, 1);
                 LOG_ERROR(LOGCALLBACK(zh), "Unimplemented sub-op type=%d in multi-op", op->type);
                 return ZUNIMPLEMENTED;
         }
